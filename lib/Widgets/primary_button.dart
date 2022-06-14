@@ -19,7 +19,7 @@ class primary_button extends StatelessWidget {
         width: 200,
         height: 70,
         decoration: ShapeDecoration(
-            color: Colors.blue.withOpacity(0.5),
+            color: Colors.blue.withOpacity(0.8),
             shape: ContinuousRectangleBorder(
                 borderRadius: BorderRadius.circular(38))),
         child: InkWell(

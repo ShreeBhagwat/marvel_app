@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:marvel_app/Helpers/helper_functions.dart';
 import 'package:marvel_app/Widgets/custom_text_field.dart';
 import 'package:marvel_app/Helpers/constant.dart';
+import 'package:marvel_app/screen/marvel_screen.dart';
 import 'package:marvel_app/screen/signup_screen.dart';
 
 import '../Widgets/custom_text_button.dart';
@@ -67,7 +68,8 @@ class LoginScreen extends StatelessWidget {
               primary_button(
                 title: 'Login',
                 onPressed: () {
-                  print('Login button pressed...');
+                  print('login...');
+                  HelperClass.navigateToScreen(context, MarvelAppScreen());
                 },
               ),
               custom_text_button(
