@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:marvel_app/Helpers/constants.dart';
+import 'package:marvel_app/screens/home_screen.dart';
 import 'package:marvel_app/screens/signup_screen.dart';
 
 import '../primary_button.dart';
@@ -107,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => signupscreen()));
+                                builder: (context) => HomeScreen()));
                       },
                     ),
                   ),
