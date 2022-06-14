@@ -13,12 +13,15 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          title,
-          style: subtitleTextStyle.copyWith(fontSize: 16),
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            title,
+            style: subtitleTextStyle.copyWith(fontSize: 16),
+          ),
         ),
       ),
     );

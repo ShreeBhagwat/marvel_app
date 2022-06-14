@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/helpers/constant.dart';
 import 'package:marvel_app/helpers/helper_function.dart';
+import 'package:marvel_app/screens/home_screen.dart';
 import 'package:marvel_app/screens/signup_screen.dart';
 import 'package:marvel_app/widget/custom_text_button.dart';
 import 'package:marvel_app/widget/primary_button.dart';
@@ -69,12 +70,15 @@ class _LoginScreenState extends State<LoginScreen> {
               PrimerButton(
                   title: 'Login',
                   onPressed: () {
-                    HelperClass.navigateToScreen(context, SignupScreen());
+                    print('call login');
+                    HelperClass.navigateToScreen(context, HomeScreen());
                   }),
               CustomTextButton(
                 title: "don't have an Account? Sign Up",
                 onPressed: () {
-                  Navigator.pop(context);
+                  print('Sign Up');
+                  //   Navigator.pop(context);
+                  HelperClass.navigateToScreen(context, SignupScreen());
                 },
               )
             ],

@@ -69,12 +69,14 @@ class _SignupScreencreenState extends State<SignupScreen> {
               PrimerButton(
                   title: 'Sign Up',
                   onPressed: () {
-                    HelperClass.navigateToScreen(context, LoginScreen());
+                    // HelperClass.navigateToScreen(context, LoginScreen());
+                    print('Sign Up');
                   }),
               CustomTextButton(
                 title: "Already a user? Login ",
                 onPressed: () {
                   Navigator.pop(context);
+                  HelperClass.navigateToScreen(context, LoginScreen());
                 },
               )
             ],
