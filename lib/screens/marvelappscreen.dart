@@ -32,7 +32,7 @@ TextEditingController passwordTextController = TextEditingController();
             color: Colors.white,
             child : Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image.asset('images/Marvel_Studios_logo.png'),
+              child: Image.asset('images/Marvel_Studios_logo.jpg'),
             )
           ),
         ),
