@@ -1,9 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:marvel_app/helpers/constant.dart';
+import 'package:marvel_app/helpers/helper_function.dart';
 import 'package:marvel_app/models/movie_model.dart';
+import 'package:marvel_app/screens/detail_screen.dart';
+import 'package:marvel_app/widget/circular_progress_bar.dart';
 import 'package:marvel_app/widget/custom_text_button.dart';
 import 'package:marvel_app/widget/custom_text_field_widget.dart';
+import 'package:marvel_app/widget/custome_app_bar.dart';
 
 import '../services/api_service.dart';
 import '../widget/primary_button.dart';
@@ -33,6 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomeAppBar(
+        Title: 'MCU APP',
+      ),
       backgroundColor: backgroundColor,
       body: moviedata.isNotEmpty
           ? GridView.builder(
@@ -42,34 +49,34 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   childAspectRatio: 2 / 3),
+              // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              //     maxCrossAxisExtent: 200,
+              //     childAspectRatio: 2 / 3,
+              //     crossAxisSpacing: 10,
+              //     mainAxisExtent: 10),
               itemBuilder: (BuildContext context, int index) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: CachedNetworkImage(
-                    imageUrl: moviedata[index].coverUrl.toString(),
-                    fit: BoxFit.cover,
-                    placeholder: (context, url) => CircularProgressBar(),
+                return InkWell(
+                  onTap: () {
+                    HelperClass.navigateToScreen(
+                        context,
+                        DetailScreen(
+                          movieData: moviedata[index],
+                        ));
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Hero(
+                      tag: moviedata[index].id.toString(),
+                      child: CachedNetworkImage(
+                        imageUrl: moviedata[index].coverUrl.toString(),
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => CircularProgressBar(),
+                      ),
+                    ),
                   ),
                 );
               })
           : Center(child: CircularProgressBar()),
-    );
-  }
-}
-
-class CircularProgressBar extends StatelessWidget {
-  const CircularProgressBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 50,
-      child: Center(
-        child: const CircularProgressIndicator(),
-      ),
     );
   }
 }
