@@ -47,7 +47,7 @@ TextEditingController passwordTextController = TextEditingController();
 
         PrimaryButton(
           title: 'Login',
-          onpressed: (){
+          onPressed: (){
             print('login to');
           },
         ),

@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:marvel_app/Helper/constant.dart';
+import 'package:marvel_app/Models/moviemodel.dart';
 import 'package:marvel_app/wedgets/TextButton.dart';
+import 'package:provider/provider.dart';
 
+import '../Helper/helperfunction.dart';
 import '../wedgets/CustomTextButton.dart';
 import '../wedgets/CustomTextWidget.dart';
 import '../wedgets/PrimaryButton.dart';
+import 'homescreen.dart';
+import 'signupscreen.dart';
 
 class MarvelAppScreen extends StatelessWidget {
    MarvelAppScreen({Key? key}) : super(key: key);
@@ -47,14 +52,19 @@ TextEditingController passwordTextController = TextEditingController();
 
         PrimaryButton(
           title: 'Login',
-          onpressed: (){
+          onPressed: (){
             print('login to');
+            HelperClass.navigationToScreen(context, HomeScreen());
+            Provider.of<MovieManager>(context,listen: false).getMovieData();
           },
         ),
                 
         CustomeTextButton(
-          text: '',
-          onPressed: (){},
+          text: "don't have an account? Sign up",
+          onPressed: (){
+             HelperClass.navigationToScreen(context, SignUpScreen());
+
+          },
         ),
         
        

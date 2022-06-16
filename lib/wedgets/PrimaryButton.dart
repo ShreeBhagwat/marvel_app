@@ -6,11 +6,11 @@ import '../Helper/constant.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
-    Key? key, required this.title, required this.onpressed,
+    Key? key, required this.title, required this.onPressed,
   }) : super(key: key);
 
 final String title;
-final VoidCallback onpressed;
+final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +23,7 @@ final VoidCallback onpressed;
         ),
         ),
         child: InkWell(
-          onTap: onpressed,
+          onTap: onPressed,
           child: Center(
             child: Text(title,
             style: titleTextStyle.copyWith(fontSize: 20),),

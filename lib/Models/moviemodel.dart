@@ -1,3 +1,6 @@
+import 'package:flutter/foundation.dart';
+import 'package:marvel_app/Services/apiservice.dart';
+
 class MovieModel { 
   List<MovieData>? data;
   int? total;
@@ -92,3 +95,40 @@ class MovieData {
     return data;
   }
 }
+
+class MovieManager extends ChangeNotifier{
+
+  List<MovieData> _movieList = [];
+  int _selectedMovie =0;
+
+  //MovieData _selectedMovies = MovieData();
+  //MovieData get selectedMovie => _selectedMovies;
+  int get selectedMovie => _selectedMovie;
+
+  List<MovieData> get movieList => List.unmodifiable(_movieList);
+
+  void getMovieData() async {
+    _movieList =  await ApiService.getMarvelData();
+    print(_movieList.length);
+    notifyListeners();
+  }
+
+  // MovieData getMovieFromId(id){
+  //   _selectedMovie = _movieList.where((element) => element.id == id).first;
+
+  //   notifyListeners();
+  //   return _selectedMovie;
+  // }
+
+  void setSelectIndex(int index){
+      _selectedMovie = index;
+
+      notifyListeners();
+      //return _selectedMovie;
+    }
+
+
+}
+
+
+
